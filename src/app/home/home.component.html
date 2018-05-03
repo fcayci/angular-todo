@@ -1,0 +1,24 @@
+<div class="container color-dark">
+  <div class="col">
+    <h3>Add a task</h3>
+  </div>
+  <div class="col">
+    <h3>Your Tasks ({{ taskCnt }})</h3>
+  </div>
+</div>
+<div class="container color-light" [@tasks]="tasks.length">
+  <div class="col">
+    <p class="sm">Add a tasks. Your tasks will be shown on the right side.</p>
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="{{ taskTxt }}" [(ngModel)]="taskTxt">
+      <input type="submit" class="btn" [value]="btnName" (click)="addTask()">
+    </form>
+  </div>
+
+  <div class="col">
+    <p class="task-container" *ngFor="let task of tasks; let i = index" (click)="removeTask(i)">
+        &#x2716; {{ task }}
+    </p>
+  </div>
+</div>
